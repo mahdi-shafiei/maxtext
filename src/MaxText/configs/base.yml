@@ -353,6 +353,7 @@ jax_cache_dir: "~/jax_cache"
 hardware: 'tpu' # Supported hardware types are 'tpu', 'gpu', 'gpu_multiprocess' and 'cpu'
 
 # Parallelism
+shard_mode: "auto" # can be either auto or explicit
 mesh_axes: ['data', 'stage', 'fsdp', 'fsdp_transpose', 'sequence', 'context', 'context_autoregressive', 'tensor', 'tensor_transpose', 'tensor_sequence', 'expert', 'autoregressive']
 logical_axis_rules: [
                       ['activation_batch', ['data', 'fsdp', 'fsdp_transpose', 'expert']],
@@ -488,6 +489,7 @@ tokenizer_path: "src/MaxText/assets/tokenizer.llama2"
 # hf pipeline only supports huggingface type, and will ignore tokenizer_type flag
 tokenizer_type: "sentencepiece" # Currently supporting: "tiktoken", "sentencepiece", "huggingface"
 use_chat_template: False
+chat_template_path: "" # path to chat template json file
 tokenize_train_data: True  # False if the dataset is pre-tokenized
 tokenize_eval_data: True  # False if the dataset is pre-tokenized
 add_bos: True
@@ -884,3 +886,4 @@ use_qk_norm_in_gdn: True
 
 # Use tokamax library for gmm kernel implementation
 use_tokamax_gmm: false
+use_tokamax_splash: false
